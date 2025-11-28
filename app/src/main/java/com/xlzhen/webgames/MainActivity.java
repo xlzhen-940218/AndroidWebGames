@@ -13,13 +13,16 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String URL = "https://webgames.codetools.fun/";
+    private static final String LOCAL_URL = "file:///android_asset/webgames/index.html";
     private WebView webView;
     private Button homeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        String url = NetworkUtils.isNetworkConnected(this)?URL:LOCAL_URL;
         // 设置全屏
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_main);
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if(request.getUrl().toString().endsWith("index.html")) {
+                if(request.getUrl().toString().endsWith("index.html") || request.getUrl().toString().equals("https://webgames.codetools.fun/")) {
                     return super.shouldOverrideUrlLoading(view, request);
                 }else{
                     Intent intent = new Intent(MainActivity.this, WebActivity.class);
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                if (url.endsWith("index.html")) {
+                if (url.endsWith("index.html")|| url.equals("https://webgames.codetools.fun/")) {
                     homeButton.setVisibility(View.GONE);
                 } else {
                     homeButton.setVisibility(View.VISIBLE);
@@ -57,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        homeButton.setOnClickListener(v -> webView.loadUrl("file:///android_asset/webgames/index.html"));
+        homeButton.setOnClickListener(v -> webView.loadUrl(url));
 
-        webView.loadUrl("file:///android_asset/webgames/index.html");
+        webView.loadUrl(url);
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
