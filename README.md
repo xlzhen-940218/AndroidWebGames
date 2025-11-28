@@ -1,0 +1,2 @@
+# AndroidWebGames
+ webgames static use
