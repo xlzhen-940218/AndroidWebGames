@@ -1,0 +1,3 @@
+[submodule "app/src/main/assets/webgames"]
+	path = app/src/main/assets/webgames
+	url = https://github.com/xlzhen-940218/WebGames
