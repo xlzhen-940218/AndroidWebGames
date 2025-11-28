@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WebGames</string>
+    <string name="go_home">回到首页</string>
 </resources>
