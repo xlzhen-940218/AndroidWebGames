@@ -25,6 +25,7 @@
 - 五子棋（`games/wuziqi.html`）：本地双方下棋并判定胜负。
 - 贪吃蛇（`games/tanchishe.html`）：吃食物变长并尽量避免碰撞以获得更高分。
 - 俄罗斯方块（`games/eluosifangkuai.html`）：通过消除行获取分数，避免堆到顶部。
+- 美少女拼图（`games/pintu.html`）：拼图游戏
 
 ## 本项目的用户流程（业务逻辑）
 

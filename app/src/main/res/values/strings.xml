@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WebGames</string>
     <string name="go_home">回到首页</string>
+    <string name="online_mode">联网模式</string>
+    <string name="offline_mode">离线模式</string>
+    <string name="switch_mode">切换模式</string>
+    <string name="online_mode_desc">使用在线游戏（需要网络）</string>
+    <string name="offline_mode_desc">使用本地游戏（无需网络）</string>
+    <string name="current_mode">当前模式：%s</string>
 </resources>
